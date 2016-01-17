@@ -4,18 +4,18 @@ function ynabEnhancedDoB() {
     var YNABheader = document.getElementsByClassName("budget-header-flexbox")[0];
     var elementForAoM = document.getElementsByClassName("budget-header-days")[0];
     var elementForDoB = elementForAoM.cloneNode(true);
+    
 
     var result = ynabEnhancedDoBCalculate();
+    elementForDoB.className = elementForDoB.className + " days-of-buffering";
     elementForDoB.children[0].textContent = result["DoB"] + " day" + (result["DoB"] == 1 ? "" : "s");
-    elementForDoB.children[0].className = elementForDoB.children[0].className + " days-of-budgeting";
     elementForDoB.children[0].title = "Total outflow: " + ynab.YNABSharedLib.currencyFormatter.format(result["totalOutflow"]) + 
         "\nTotal days of budgeting: " + result["totalDays"] + 
         "\nAverage daily outflow: ~" + ynab.YNABSharedLib.currencyFormatter.format(result["averageDailyOutflow"]) + 
         "\nAverage daily transactions: " + result["averageDailyTransactions"].toFixed(1);
     elementForDoB.children[1].textContent = "Days of Buffering";
-    elementForDoB.children[1].className = elementForDoB.children[1].className + " days-of-budgeting"
     elementForDoB.children[1].title = "Don't like AoM? Try this out instead!";
-    elementForDoB.className = elementForDoB.className.replace(/\bhidden\b/,'');
+    elementForDoB.className = elementForDoB.className.replace(/\bhidden\b/,'').replace(/budget-header-days/,'');
 
     YNABheader.appendChild(elementForDoB);
 }
@@ -63,7 +63,7 @@ function ynabEnhancedDoBCalculate() {
 
 function ynabEnhancedDoBInit() {
     var elementForAoM = document.getElementsByClassName("budget-header-days");
-    var elementForDoB = document.getElementsByClassName('days-of-budgeting');
+    var elementForDoB = document.getElementsByClassName('days-of-buffering');
     if (elementForAoM.length == 1 && elementForDoB.length == 0) {
         ynabEnhancedDoB();
     }
