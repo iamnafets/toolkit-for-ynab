@@ -1,8 +1,21 @@
-.budget-header-days.days-of-buffering {
-	display: block !important;
-	border-left: 1px solid #0e414c !important;
+.days-of-buffering .budget-header-days-age {
+  color: #23b2ce;
+  font-size: 2em;
+  padding-top: .25em;
 }
 
-.days-of-buffering .budget-header-days-age {
-    color: #23b2ce !important;
+.days-of-buffering .budget-header-days-label {
+  font-style: italic;
+  font-size: .875em;
+}
+
+.days-of-buffering {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  color: #fff;
 }

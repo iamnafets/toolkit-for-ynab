@@ -4,6 +4,7 @@ function ynabEnhancedDoB() {
     var YNABheader = document.getElementsByClassName("budget-header-flexbox")[0];
     var elementForAoM = document.getElementsByClassName("budget-header-days")[0];
     var elementForDoB = elementForAoM.cloneNode(true);
+    
 
     var result = ynabEnhancedDoBCalculate();
     elementForDoB.className = elementForDoB.className + " days-of-buffering";
@@ -14,7 +15,7 @@ function ynabEnhancedDoB() {
         "\nAverage daily transactions: " + result["averageDailyTransactions"].toFixed(1);
     elementForDoB.children[1].textContent = "Days of Buffering";
     elementForDoB.children[1].title = "Don't like AoM? Try this out instead!";
-    elementForDoB.className = elementForDoB.className.replace(/\bhidden\b/,'');
+    elementForDoB.className = elementForDoB.className.replace(/\bhidden\b/,'').replace(/budget-header-days/,'');
 
     YNABheader.appendChild(elementForDoB);
 }
