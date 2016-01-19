@@ -62,7 +62,6 @@
 	  return JSON.parse(localStorage.getItem('ynab_toolkit_pacing_deemphasized_categories')) || [];
         } else {
           var value = getDeemphasizedCategoriesSetting();
-	  console.info("getting "+value.getSettingValue());
           if(typeof value !== 'undefined') {
             return JSON.parse(value.getSettingValue());
           } else {
@@ -74,8 +73,6 @@
       function setDeemphasizedCategories(value) {
         var stringValue = JSON.stringify(value);
 	
-	console.info("setting "+stringValue);
-
         if(ynabToolKit.featureOptions.storePacingLocally) {
           localStorage.setItem('ynab_toolkit_pacing_deemphasized_categories', stringValue);
         } else {
